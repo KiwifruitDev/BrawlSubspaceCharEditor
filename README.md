@@ -1,6 +1,8 @@
 # BrawlSubspaceCharEditor
 This program allows Subspace Emissary character selection tables to be edited.
 
+![](https://i.imgur.com/cjxTc9W.png)
+
 ## Usage
 1. Open the program.
 1. Open a Subspace Emissary character selection table file.
