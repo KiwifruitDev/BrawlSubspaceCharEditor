@@ -6,6 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.0</Version>
+    <!-- KiwifruitDev and copyright -->
+    <Authors>KiwifruitDev</Authors>
+    <Company>KiwifruitDev</Company>
+    <Copyright>Copyright (c) 2023 KiwifruitDev; Licensed under the MIT License.</Copyright>
   </PropertyGroup>
 
 </Project>

@@ -34,8 +34,14 @@ partial class Form1
         saveToolStripMenuItem = new ToolStripMenuItem();
         saveAsToolStripMenuItem = new ToolStripMenuItem();
         closeToolStripMenuItem = new ToolStripMenuItem();
+        fileNameToolStripMenuItem = new ToolStripMenuItem();
+        editToolStripMenuItem = new ToolStripMenuItem();
+        addCharacterToolStripMenuItem = new ToolStripMenuItem();
+        removeCharacterToolStripMenuItem = new ToolStripMenuItem();
         helpToolStripMenuItem = new ToolStripMenuItem();
-        aboutToolStripMenuItem = new ToolStripMenuItem();
+        gitHubToolStripMenuItem = new ToolStripMenuItem();
+        versionToolStripMenuItem = new ToolStripMenuItem();
+        byKiwifruitDevToolStripMenuItem = new ToolStripMenuItem();
         richTextBox1 = new RichTextBox();
         label2 = new Label();
         tabPage1 = new TabPage();
@@ -67,7 +73,7 @@ partial class Form1
         // 
         // menuStrip1
         // 
-        menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, helpToolStripMenuItem });
+        menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, helpToolStripMenuItem });
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
         menuStrip1.Size = new Size(420, 24);
@@ -76,7 +82,7 @@ partial class Form1
         // 
         // fileToolStripMenuItem
         // 
-        fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, closeToolStripMenuItem });
+        fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, closeToolStripMenuItem, fileNameToolStripMenuItem });
         fileToolStripMenuItem.Name = "fileToolStripMenuItem";
         fileToolStripMenuItem.Size = new Size(37, 20);
         fileToolStripMenuItem.Text = "File";
@@ -84,7 +90,8 @@ partial class Form1
         // openToolStripMenuItem
         // 
         openToolStripMenuItem.Name = "openToolStripMenuItem";
-        openToolStripMenuItem.Size = new Size(180, 22);
+        openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
+        openToolStripMenuItem.Size = new Size(195, 22);
         openToolStripMenuItem.Text = "Open";
         openToolStripMenuItem.Click += openToolStripMenuItem_Click;
         // 
@@ -92,7 +99,8 @@ partial class Form1
         // 
         saveToolStripMenuItem.Enabled = false;
         saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-        saveToolStripMenuItem.Size = new Size(180, 22);
+        saveToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
+        saveToolStripMenuItem.Size = new Size(195, 22);
         saveToolStripMenuItem.Text = "Save";
         saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
         // 
@@ -100,7 +108,8 @@ partial class Form1
         // 
         saveAsToolStripMenuItem.Enabled = false;
         saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-        saveAsToolStripMenuItem.Size = new Size(180, 22);
+        saveAsToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Shift | Keys.S;
+        saveAsToolStripMenuItem.Size = new Size(195, 22);
         saveAsToolStripMenuItem.Text = "Save As...";
         saveAsToolStripMenuItem.Click += saveAsToolStripMenuItem_Click;
         // 
@@ -108,33 +117,77 @@ partial class Form1
         // 
         closeToolStripMenuItem.Enabled = false;
         closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-        closeToolStripMenuItem.Size = new Size(180, 22);
+        closeToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.W;
+        closeToolStripMenuItem.Size = new Size(195, 22);
         closeToolStripMenuItem.Text = "Close";
         closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
         // 
+        // fileNameToolStripMenuItem
+        // 
+        fileNameToolStripMenuItem.Enabled = false;
+        fileNameToolStripMenuItem.Name = "fileNameToolStripMenuItem";
+        fileNameToolStripMenuItem.Size = new Size(195, 22);
+        fileNameToolStripMenuItem.Text = "No File";
+        // 
+        // editToolStripMenuItem
+        // 
+        editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addCharacterToolStripMenuItem, removeCharacterToolStripMenuItem });
+        editToolStripMenuItem.Name = "editToolStripMenuItem";
+        editToolStripMenuItem.Size = new Size(39, 20);
+        editToolStripMenuItem.Text = "Edit";
+        // 
+        // addCharacterToolStripMenuItem
+        // 
+        addCharacterToolStripMenuItem.Enabled = false;
+        addCharacterToolStripMenuItem.Name = "addCharacterToolStripMenuItem";
+        addCharacterToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
+        addCharacterToolStripMenuItem.Size = new Size(246, 22);
+        addCharacterToolStripMenuItem.Text = "Add Character";
+        addCharacterToolStripMenuItem.Click += addCharacterToolStripMenuItem_Click;
+        // 
+        // removeCharacterToolStripMenuItem
+        // 
+        removeCharacterToolStripMenuItem.Enabled = false;
+        removeCharacterToolStripMenuItem.Name = "removeCharacterToolStripMenuItem";
+        removeCharacterToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Shift | Keys.N;
+        removeCharacterToolStripMenuItem.Size = new Size(246, 22);
+        removeCharacterToolStripMenuItem.Text = "Remove Character";
+        removeCharacterToolStripMenuItem.Click += removeCharacterToolStripMenuItem_Click;
+        // 
         // helpToolStripMenuItem
         // 
-        helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem });
-        helpToolStripMenuItem.Enabled = false;
+        helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gitHubToolStripMenuItem, versionToolStripMenuItem, byKiwifruitDevToolStripMenuItem });
         helpToolStripMenuItem.Name = "helpToolStripMenuItem";
         helpToolStripMenuItem.Size = new Size(44, 20);
         helpToolStripMenuItem.Text = "Help";
         // 
-        // aboutToolStripMenuItem
+        // gitHubToolStripMenuItem
         // 
-        aboutToolStripMenuItem.Enabled = false;
-        aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-        aboutToolStripMenuItem.Size = new Size(107, 22);
-        aboutToolStripMenuItem.Text = "About";
+        gitHubToolStripMenuItem.Name = "gitHubToolStripMenuItem";
+        gitHubToolStripMenuItem.Size = new Size(154, 22);
+        gitHubToolStripMenuItem.Text = "GitHub";
+        gitHubToolStripMenuItem.Click += gitHubToolStripMenuItem_Click;
+        // 
+        // versionToolStripMenuItem
+        // 
+        versionToolStripMenuItem.Enabled = false;
+        versionToolStripMenuItem.Name = "versionToolStripMenuItem";
+        versionToolStripMenuItem.Size = new Size(154, 22);
+        versionToolStripMenuItem.Text = "Version";
+        // 
+        // byKiwifruitDevToolStripMenuItem
+        // 
+        byKiwifruitDevToolStripMenuItem.Enabled = false;
+        byKiwifruitDevToolStripMenuItem.Name = "byKiwifruitDevToolStripMenuItem";
+        byKiwifruitDevToolStripMenuItem.Size = new Size(154, 22);
+        byKiwifruitDevToolStripMenuItem.Text = "By KiwifruitDev";
         // 
         // richTextBox1
         // 
         richTextBox1.Dock = DockStyle.Bottom;
-        richTextBox1.Enabled = false;
         richTextBox1.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point);
         richTextBox1.Location = new Point(3, 216);
         richTextBox1.Name = "richTextBox1";
-        richTextBox1.ReadOnly = true;
         richTextBox1.Size = new Size(406, 52);
         richTextBox1.TabIndex = 4;
         richTextBox1.Text = "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 C1 BC 00 00 41 2E 66 66 C1 C5 D7 0A C1 0C 00 00";
@@ -220,6 +273,7 @@ partial class Form1
         comboBox1.Name = "comboBox1";
         comboBox1.Size = new Size(129, 23);
         comboBox1.TabIndex = 17;
+        comboBox1.Text = "Mario";
         // 
         // label9
         // 
@@ -392,11 +446,17 @@ partial class Form1
     private ToolStripMenuItem saveToolStripMenuItem;
     private ToolStripMenuItem saveAsToolStripMenuItem;
     private ToolStripMenuItem helpToolStripMenuItem;
-    private ToolStripMenuItem aboutToolStripMenuItem;
     private Label label1;
     private ComboBox comboBox1;
     private TabControl tabControl2;
     private TabPage tabPage2;
     private Label label4;
     private PictureBox pictureBox2;
+    private ToolStripMenuItem gitHubToolStripMenuItem;
+    private ToolStripMenuItem versionToolStripMenuItem;
+    private ToolStripMenuItem byKiwifruitDevToolStripMenuItem;
+    private ToolStripMenuItem editToolStripMenuItem;
+    private ToolStripMenuItem addCharacterToolStripMenuItem;
+    private ToolStripMenuItem removeCharacterToolStripMenuItem;
+    private ToolStripMenuItem fileNameToolStripMenuItem;
 }

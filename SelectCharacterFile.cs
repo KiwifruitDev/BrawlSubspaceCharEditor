@@ -70,6 +70,18 @@ public struct SelectCharacterFile
         {
             fileStream.CopyTo(backupStream);
         }
+        // Close fileStream
+        fileStream.Close();
+        // Copy bak file to filePath
+        using (FileStream newFileStream = new FileStream(filePath, FileMode.Create))
+        {
+            using (FileStream backupStream = new FileStream(backupPath, FileMode.Open))
+            {
+                backupStream.CopyTo(newFileStream);
+            }
+        }
+        // Open fileStream for writing
+        fileStream = new FileStream(filePath, FileMode.Open);
 
         // Use big endian for saving
         if (BitConverter.IsLittleEndian)
@@ -122,13 +134,17 @@ public struct SelectCharacterFile
                 fileStream.Write(BitConverter.GetBytes(characterSelection.CursorPositionY), 0, 4);
                 fileStream.Write(BitConverter.GetBytes(characterSelection.NamePositionX), 0, 4);
                 fileStream.Write(BitConverter.GetBytes(characterSelection.NamePositionY), 0, 4);
+                // Undo endianness
+                if (BitConverter.IsLittleEndian)
+                {
+                    characterSelection.CursorPositionX = BitConverter.ToSingle(BitConverter.GetBytes(characterSelection.CursorPositionX).Reverse().ToArray(), 0);
+                    characterSelection.CursorPositionY = BitConverter.ToSingle(BitConverter.GetBytes(characterSelection.CursorPositionY).Reverse().ToArray(), 0);
+                    characterSelection.NamePositionX = BitConverter.ToSingle(BitConverter.GetBytes(characterSelection.NamePositionX).Reverse().ToArray(), 0);
+                    characterSelection.NamePositionY = BitConverter.ToSingle(BitConverter.GetBytes(characterSelection.NamePositionY).Reverse().ToArray(), 0);
+                }
             }
+            // Write separator
             fileStream.Write(characterTable.Unknown, 0, 20);
-            // Undo endianness
-            if (BitConverter.IsLittleEndian)
-            {
-                characterTable.Offset = BitConverter.ToInt32(BitConverter.GetBytes(characterTable.Offset).Reverse().ToArray(), 0);
-            }
         }
     }
 }
